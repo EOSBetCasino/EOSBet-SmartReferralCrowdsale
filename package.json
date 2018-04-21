@@ -7,11 +7,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "truffle test"
+    "test": "truffle test",
+    "testrpc": "testrpc -m eosbet -a 10 -l 7900000"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://eosbet-io@github.com/EOSBetCasino/EOSBet-SmartReferralCrowdsale.git"
+    "url": "git+https://github.com/EOSBetCasino/EOSBet-SmartReferralCrowdsale.git"
   },
   "keywords": [
     "smart-contract",
@@ -29,5 +30,11 @@
   "bugs": {
     "url": "https://github.com/EOSBetCasino/EOSBet-SmartReferralCrowdsale/issues"
   },
-  "homepage": "https://github.com/EOSBetCasino/EOSBet-SmartReferralCrowdsale#readme"
+  "homepage": "https://github.com/EOSBetCasino/EOSBet-SmartReferralCrowdsale#readme",
+  "devDependencies": {
+    "truffle": "^4.1.7"
+  },
+  "dependencies": {
+    "webpack": "^4.6.0"
+  }
 }
