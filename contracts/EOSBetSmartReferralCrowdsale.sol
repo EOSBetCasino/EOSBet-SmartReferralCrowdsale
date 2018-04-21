@@ -39,20 +39,27 @@ contract EOSBetSmartReferralCrowdsale {
 		// require that user is sending eth and the sale is open
 		require(msg.value > 0 && CROWDSALEOPEN);
 
-		// get the bonuses for the referrer and referree
-		uint256 bonusForReferredSender = SafeMath.mul(msg.value, PERCENTAGE_FOR_REFERRED_SENDER) / 100;
-		uint256 bonusForReferrer = SafeMath.mul(msg.value, PERCENTAGE_FOR_REFERRER) / 100;
+		// if referrer is the users own address, or the blank address, then just don't give them the referral
+		if (msg.sender == referrer || referrer == address(0x0)){
+			// emit event, no bonus 
+			emit Referral_BonusToSender(msg.sender, msg.value, 0);
+		}
+		// else give the user/referrer the referral credit
+		else {
+			// get the bonuses for the referrer and referree
+			uint256 bonusForReferredSender = SafeMath.mul(msg.value, PERCENTAGE_FOR_REFERRED_SENDER) / 100;
+			uint256 bonusForReferrer = SafeMath.mul(msg.value, PERCENTAGE_FOR_REFERRER) / 100;
 
-		// give the bonus for the referree
-		referredEtherValue[msg.sender] = SafeMath.add(referredEtherValue[msg.sender], bonusForReferredSender);
+			// give the bonus for the referree
+			referredEtherValue[msg.sender] = SafeMath.add(referredEtherValue[msg.sender], bonusForReferredSender);
 
-		// give the bonus for the referrer
-		referredEtherValue[referrer] = SafeMath.add(referredEtherValue[referrer], bonusForReferrer);
+			// give the bonus for the referrer
+			referredEtherValue[referrer] = SafeMath.add(referredEtherValue[referrer], bonusForReferrer);
 
-		// emit events to log the referral 
-		emit Referral_BonusToSender(msg.sender, msg.value, bonusForReferredSender);
-		emit Referral_BonusToReferrer(referrer, 0, bonusForReferrer);
-
+			// emit events to log the referral 
+			emit Referral_BonusToSender(msg.sender, msg.value, bonusForReferredSender);
+			emit Referral_BonusToReferrer(referrer, 0, bonusForReferrer);
+		}
 	}
 
 	// just an empty fallback function to capture all straight sends to the crowdsale, and emit a basic event.
