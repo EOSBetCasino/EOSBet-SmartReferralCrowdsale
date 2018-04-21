@@ -1,0 +1,33 @@
+{
+  "name": "eosbet-smartreferralcrowdsale",
+  "version": "1.0.0",
+  "description": "Crowdsale contract with smart referral functionality & web3 interface",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "truffle test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://eosbet-io@github.com/EOSBetCasino/EOSBet-SmartReferralCrowdsale.git"
+  },
+  "keywords": [
+    "smart-contract",
+    "ethereum",
+    "ico",
+    "crowdsale",
+    "referrals",
+    "token",
+    "eos",
+    "eosbet",
+    "dapp"
+  ],
+  "author": "EOSBet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EOSBetCasino/EOSBet-SmartReferralCrowdsale/issues"
+  },
+  "homepage": "https://github.com/EOSBetCasino/EOSBet-SmartReferralCrowdsale#readme"
+}
