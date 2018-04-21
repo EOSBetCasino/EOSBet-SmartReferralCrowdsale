@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "truffle test",
-    "testrpc": "testrpc -m eosbet -a 10 -l 7900000"
+    "testrpc": "testrpc -m eosbet -a 10 -l 7900000",
+    "dev": "lite-server --baseDir='./'"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
   },
   "homepage": "https://github.com/EOSBetCasino/EOSBet-SmartReferralCrowdsale#readme",
   "devDependencies": {
+    "lite-server": "^2.3.0",
     "truffle": "^4.1.7"
   },
   "dependencies": {
