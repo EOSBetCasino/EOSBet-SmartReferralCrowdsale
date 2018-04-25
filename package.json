@@ -9,7 +9,7 @@
   "scripts": {
     "test": "truffle test",
     "testrpc": "testrpc -m eosbet -a 10 -l 7900000",
-    "dev": "lite-server --baseDir='./'"
+    "dev": "lite-server --baseDir='docs'"
   },
   "repository": {
     "type": "git",

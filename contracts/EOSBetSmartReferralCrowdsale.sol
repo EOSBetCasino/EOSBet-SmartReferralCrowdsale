@@ -62,11 +62,11 @@ contract EOSBetSmartReferralCrowdsale {
 		}
 	}
 
-	// just an empty fallback function to capture all straight sends to the crowdsale, and emit a basic event.
+	// just an basic fallback function to capture all straight sends to the crowdsale, and emit a basic event.
 	function () public payable {
 
 		// require that the sale is open
-		require(CROWDSALEOPEN);
+		require(CROWDSALEOPEN && msg.value > 0);
 
 		// emit event, no bonus 
 		emit Referral_BonusToSender(msg.sender, msg.value, 0);
